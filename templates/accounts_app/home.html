@@ -1,2 +1,6 @@
-<h1>Bienvenido al sistema</h1>
-<p>Estás logueado como {{ user.username }}</p>
+<h2>Iniciar sesión</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Ingresar</button>
+</form>
