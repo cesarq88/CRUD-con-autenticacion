@@ -2,7 +2,10 @@
 {% block title %}Lista de Oficinas{% endblock %}
 
 {% block content %}
+
 <h2>Oficinas</h2>
+<a href="{% url 'oficina_create' %}" class="btn btn-primary mb-3">Nueva Oficina</a>
+
 <table class="table table-striped">
     <thead>
         <tr>
