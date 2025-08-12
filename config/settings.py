@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles', 
     'oficina', 
-    'personas_app',
+    'persona',
     'accounts_app',
     'captcha',
 

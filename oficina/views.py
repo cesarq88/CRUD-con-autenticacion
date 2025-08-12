@@ -12,7 +12,8 @@ class OficinaForm(forms.ModelForm):
 @login_required
 def oficina_list(request):
     oficinas = Oficina.objects.all().order_by('nombre')
-    page_obj = Paginator(oficinas, 5).get_page(request.GET.get('page'))
+    page_obj = Paginator(oficinas, 5
+    ).get_page(request.GET.get('page'))
     return render(request, 'oficina/oficina_list.html', {'page_obj': page_obj})
 
 @login_required
@@ -45,4 +46,15 @@ def oficina_delete(request, pk):
         oficina.delete()
         return redirect('oficina_list')
     return render(request, 'oficina/oficina_confirm_delete.html', {'oficina': oficina})
+
+@login_required
+def oficina_detail(request, pk):
+    oficina = get_object_or_404(Oficina, pk=pk)
+    personas = oficina.persona_set.all().order_by('apellido', 'nombre')
+    return render(request, 'oficina/oficina_detail.html', {
+        'oficina': oficina,
+        'personas': personas
+    })
+
+
 

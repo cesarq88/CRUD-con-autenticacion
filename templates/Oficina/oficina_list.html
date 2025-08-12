@@ -20,6 +20,7 @@
         <td>{{ oficina.nombre }}</td>
         <td>{{ oficina.nombre_corto }}</td>
         <td>
+          <a href="{% url 'oficina_detail' oficina.pk %}" class="btn btn-sm btn-info">Ver</a>
           <a href="{% url 'oficina_update' oficina.pk %}" class="btn btn-sm btn-warning">
             Modificar
           </a>
