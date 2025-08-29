@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Importar Personas{% endblock %}
+
+{% block content %}
+<h2>Importar Personas (CSV)</h2>
+<p>Cabeceras requeridas: <code>apellido,nombre,edad,oficina</code></p>
+
+<form method="post" enctype="multipart/form-data" class="card card-body">
+  {% csrf_token %}
+  <input type="file" name="archivo" accept=".csv" class="form-control mb-3" required>
+  <button class="btn btn-primary">Subir e importar</button>
+  <a href="{% url 'persona:persona_list' %}" class="btn btn-secondary">Volver</a>
+</form>
+{% endblock %}

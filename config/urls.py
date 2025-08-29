@@ -6,7 +6,8 @@ urlpatterns = [
 
 
     path('', include('accounts_app.urls')), 
-    path('', include('oficina.urls')),        
+    path('', include('oficina.urls')),
+     path('', include(('persona.urls', 'persona'), namespace='persona')),        
     path('captcha/', include('captcha.urls')),
-    path('', include('persona.urls')),
+   
 ]

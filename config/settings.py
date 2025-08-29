@@ -130,4 +130,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
+# Al final del archivo (o junto a otras constantes de auth)
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/oficinas/'
+LOGOUT_REDIRECT_URL = '/login/'
+
 

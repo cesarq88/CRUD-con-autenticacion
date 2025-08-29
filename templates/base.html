@@ -7,25 +7,34 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Mi Proyecto</a>
+            <a class="navbar-brand" href="{% url 'oficina_list' %}">Mi Proyecto</a>
+            
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/personas/">Personas</a>
+                        <a class="nav-link" href="{% url 'persona:persona_list' %}">Personas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/oficinas/">Oficinas</a>
                     </li>
                 </ul>
-                <form class="d-flex me-2" action="/personas/buscar/" method="get">
-                    <input class="form-control me-2" type="search" placeholder="Buscar persona" name="q">
+                 <form class="d-flex ms-auto me-2" role="search" method="get" action="{% url 'persona:persona_list' %}">
+                    <input class="form-control me-2" type="search" name="q" placeholder="Buscar persona" aria-label="Buscar">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
+                     <button type="submit" class="btn btn-outline-light btn-sm">
                 </form>
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="/logout/">Salir</a>
-                        </li>
+                             <form method="post" action="{% url 'logout' %}" class="d-inline">
+                                {% csrf_token %}
+                                
+                                 <button type="submit" class="btn btn-outline-light btn-sm">
+
+                                    Salir
+                                </button>
+                            </form>
+                        </li>       
                     {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="/login/">Ingresar</a>
@@ -35,9 +44,8 @@
             </div>
         </div>
     </nav>
-    <li class="nav-item">
-  <a class="nav-link" href="{% url 'oficina_list' %}">Oficinas</a>
-</li>
+    
+ 
 
     <div class="container">
         {% block content %}

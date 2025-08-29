@@ -5,6 +5,8 @@
 
 <h2>Oficinas</h2>
 <a href="{% url 'oficina_create' %}" class="btn btn-primary mb-3">Nueva Oficina</a>
+<a href="{% url 'oficina_importar' %}" class="btn btn-outline-secondary">Importar CSV</a>
+
 
 <table class="table table-striped">
   <thead>
@@ -21,11 +23,10 @@
         <td>{{ oficina.nombre_corto }}</td>
         <td>
           <a href="{% url 'oficina_detail' oficina.pk %}" class="btn btn-sm btn-info">Ver</a>
-          <a href="{% url 'oficina_update' oficina.pk %}" class="btn btn-sm btn-warning">
-            Modificar
-          </a>
-            <a href="{% url 'oficina_delete' oficina.pk %}" class="btn btn-sm btn-danger">
-                Eliminar
+         
+          <a href="{% url 'oficina_update' oficina.pk %}" class="btn btn-sm btn-warning">Modificar</a>
+          <a href="{% url 'oficina_delete' oficina.pk %}" class="btn btn-sm btn-danger">
+                Eliminar</a>
         </td>
       </tr>
     {% empty %}

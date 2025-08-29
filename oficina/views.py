@@ -3,6 +3,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from .models import Oficina
+from django.core.files.base import ContentFile 
+from django.core.files.storage import default_storage
+from django.contrib import messages 
+from django.views.decorators.http import require_http_methods
+import csv , io
 
 class OficinaForm(forms.ModelForm):
     class Meta:
@@ -55,6 +60,45 @@ def oficina_detail(request, pk):
         'oficina': oficina,
         'personas': personas
     })
+
+@login_required
+@require_http_methods(["GET", "POST"])
+def oficina_importar(request):
+    if request.method == "POST" and request.FILES.get("archivo"):
+        f = request.FILES["archivo"]
+        tmp = default_storage.save(f"uploads/{f.name}", ContentFile(f.read()))
+        creadas, actualizadas = 0, 0
+
+        # Abrimos en binario y envolvemos con TextIOWrapper para setear encoding
+        with default_storage.open(tmp, "rb") as fh:
+            text_file = io.TextIOWrapper(fh, encoding="utf-8")
+            # Si tu CSV usa ; en vez de , descomentá la línea de abajo:
+            # reader = csv.DictReader(text_file, delimiter=';')
+            reader = csv.DictReader(text_file)
+
+            for row in reader:
+                nombre = (row.get("nombre") or "").strip()
+                nombre_corto = (row.get("nombre_corto") or "").strip()
+                if not nombre:
+                    continue
+
+                obj, created = Oficina.objects.get_or_create(
+                    nombre=nombre,
+                    defaults={"nombre_corto": nombre_corto}
+                )
+                if created:
+                    creadas += 1
+                else:
+                    # actualizar nombre_corto si vino distinto y no vacío
+                    if nombre_corto and obj.nombre_corto != nombre_corto:
+                        obj.nombre_corto = nombre_corto
+                        obj.save()
+                        actualizadas += 1
+
+        messages.success(request, f"Oficinas — creadas: {creadas}, actualizadas: {actualizadas}.")
+        return redirect("oficina_list")
+
+    return render(request, "oficina/oficina_importar.html")
 
 
 

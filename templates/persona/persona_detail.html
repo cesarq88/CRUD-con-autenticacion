@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Detalle de Persona{% endblock %}
+
+{% block content %}
+  <h2>{{ persona.apellido }}, {{ persona.nombre }}</h2>
+  <ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Edad:</strong> {{ persona.edad }}</li>
+    <li class="list-group-item"><strong>Oficina:</strong> {{ persona.oficina.nombre }}</li>
+  </ul>
+  <a href="{% url 'persona:persona_update' persona.pk %}" class="btn btn-warning">Modificar</a>
+  <a href="{% url 'persona:persona_delete' persona.pk %}" class="btn btn-danger">Eliminar</a>
+  <a href="{% url 'persona:persona_list' %}" class="btn btn-secondary">Volver</a>
+{% endblock %}
