@@ -15,8 +15,12 @@ def register(request):
     return render(request, 'accounts_app/register.html', {'form': form})
 
 
+#def home(request):
+ #   return render(request, 'accounts_app/home.html')
 def home(request):
-    return render(request, 'accounts_app/home.html')
+    if request.user.is_authenticated:
+        return redirect('oficina_list')     # ya logueado → a Oficinas
+    return redirect('login') 
 
 
 # Create your views here.
