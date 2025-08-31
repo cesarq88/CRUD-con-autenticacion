@@ -69,11 +69,10 @@ def oficina_importar(request):
         tmp = default_storage.save(f"uploads/{f.name}", ContentFile(f.read()))
         creadas, actualizadas = 0, 0
 
-        # Abrimos en binario y envolvemos con TextIOWrapper para setear encoding
+       
         with default_storage.open(tmp, "rb") as fh:
             text_file = io.TextIOWrapper(fh, encoding="utf-8")
-            # Si tu CSV usa ; en vez de , descomentá la línea de abajo:
-            # reader = csv.DictReader(text_file, delimiter=';')
+           
             reader = csv.DictReader(text_file)
 
             for row in reader:
@@ -89,7 +88,7 @@ def oficina_importar(request):
                 if created:
                     creadas += 1
                 else:
-                    # actualizar nombre_corto si vino distinto y no vacío
+                    
                     if nombre_corto and obj.nombre_corto != nombre_corto:
                         obj.nombre_corto = nombre_corto
                         obj.save()
