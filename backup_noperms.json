@@ -1,0 +1,237 @@
+[
+  {
+    "model": "auth.user",
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$wtTWm9NskUYbPHzpT3eSJ4$wixjxtd2OJjNn814A7UsrGLQaZAE0fD0pDDrpce8TPA=",
+      "last_login": "2025-08-28T12:55:17.129Z",
+      "is_superuser": true,
+      "username": "cesar",
+      "first_name": "",
+      "last_name": "",
+      "email": "cesarq.089@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-07-11T16:06:34.707Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$wcfqzRBGDOP0bXvnMCKBVs$SKD0yxDmKkOOiO3UUqCwAzNw7ptRpnFq5tRjm1VDCcc=",
+      "last_login": "2025-08-28T15:22:48.047Z",
+      "is_superuser": false,
+      "username": "CesarQ",
+      "first_name": "",
+      "last_name": "",
+      "email": "cesar@cesar.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-28T15:11:14.493Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$a77SsycAWxIke1ohOz1AQn$imRoThPfHd+Fe20lzqLQnBrS14iVL5+0Eit3V4jvA4g=",
+      "last_login": "2025-09-26T23:05:55.097Z",
+      "is_superuser": false,
+      "username": "karinaM",
+      "first_name": "",
+      "last_name": "",
+      "email": "karina@tresporciento.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-28T15:26:11.320Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "oficina.oficina",
+    "pk": 8,
+    "fields": {
+      "nombre": "Tesoreria",
+      "nombre_corto": "TS"
+    }
+  },
+  {
+    "model": "oficina.oficina",
+    "pk": 9,
+    "fields": {
+      "nombre": "Siniestos",
+      "nombre_corto": "ST"
+    }
+  },
+  {
+    "model": "oficina.oficina",
+    "pk": 10,
+    "fields": {
+      "nombre": "Proyecto Tecnicos",
+      "nombre_corto": "PT"
+    }
+  },
+  {
+    "model": "oficina.oficina",
+    "pk": 11,
+    "fields": {
+      "nombre": "Personal",
+      "nombre_corto": "PER"
+    }
+  },
+  {
+    "model": "oficina.oficina",
+    "pk": 12,
+    "fields": {
+      "nombre": "Administracion",
+      "nombre_corto": "AD"
+    }
+  },
+  {
+    "model": "oficina.oficina",
+    "pk": 13,
+    "fields": {
+      "nombre": "Asesoramiento",
+      "nombre_corto": "AS"
+    }
+  },
+  {
+    "model": "oficina.oficina",
+    "pk": 14,
+    "fields": {
+      "nombre": "Logistica",
+      "nombre_corto": "LG"
+    }
+  },
+  {
+    "model": "oficina.oficina",
+    "pk": 15,
+    "fields": {
+      "nombre": "Compras",
+      "nombre_corto": "CO"
+    }
+  },
+  {
+    "model": "persona.persona",
+    "pk": 9,
+    "fields": {
+      "nombre": "Cesar",
+      "apellido": "Garcia",
+      "oficina": 8,
+      "edad": 28
+    }
+  },
+  {
+    "model": "persona.persona",
+    "pk": 10,
+    "fields": {
+      "nombre": "Diego",
+      "apellido": "Morales",
+      "oficina": 9,
+      "edad": 35
+    }
+  },
+  {
+    "model": "persona.persona",
+    "pk": 11,
+    "fields": {
+      "nombre": "Emiliano",
+      "apellido": "Moreno",
+      "oficina": 10,
+      "edad": 25
+    }
+  },
+  {
+    "model": "persona.persona",
+    "pk": 12,
+    "fields": {
+      "nombre": "Carlos",
+      "apellido": "Peralta",
+      "oficina": 9,
+      "edad": 34
+    }
+  },
+  {
+    "model": "persona.persona",
+    "pk": 13,
+    "fields": {
+      "nombre": "Laura",
+      "apellido": "Sisterna",
+      "oficina": 11,
+      "edad": 20
+    }
+  },
+  {
+    "model": "persona.persona",
+    "pk": 14,
+    "fields": {
+      "nombre": "Silvia",
+      "apellido": "Gomez",
+      "oficina": 12,
+      "edad": 41
+    }
+  },
+  {
+    "model": "persona.persona",
+    "pk": 15,
+    "fields": {
+      "nombre": "Ana",
+      "apellido": "Perez",
+      "oficina": 13,
+      "edad": 31
+    }
+  },
+  {
+    "model": "persona.persona",
+    "pk": 16,
+    "fields": {
+      "nombre": "Juan",
+      "apellido": "Torres",
+      "oficina": 14,
+      "edad": 29
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 8,
+    "fields": {
+      "challenge": "DSTZ",
+      "response": "dstz",
+      "hashkey": "5cc57514414a75ede26a93f8dc31f6cfd10d2f41",
+      "expiration": "2025-08-28T15:27:19.091Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 9,
+    "fields": {
+      "challenge": "WMJI",
+      "response": "wmji",
+      "hashkey": "08a5fe5fbe2b15fde5303fb735ceeddb76937571",
+      "expiration": "2025-08-28T15:27:59.597Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 11,
+    "fields": {
+      "challenge": "BAMK",
+      "response": "bamk",
+      "hashkey": "3c5370ff4c5884b5ea96914b0b798c47da84ca7c",
+      "expiration": "2025-08-31T18:09:50.312Z"
+    }
+  },
+  {
+    "model": "captcha.captchastore",
+    "pk": 12,
+    "fields": {
+      "challenge": "MXZY",
+      "response": "mxzy",
+      "hashkey": "9457673934838aa05d6ae942e4858d08bd147d72",
+      "expiration": "2025-08-31T18:44:32.813Z"
+    }
+  }
+]
